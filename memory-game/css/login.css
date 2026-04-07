@@ -1,0 +1,139 @@
+/* login.css */
+
+.login-form {
+    background-image: url(../imagens-jogo-memoria/fundo-index.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 20px;
+    position: relative; /* Garante que o overlay funcione corretamente */
+}
+
+/* Criando um container para o formulário se destacar do fundo */
+.login-form > * {
+    z-index: 1;
+}
+
+/* Adicionando um "overlay" escuro suave */
+.login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.login__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%; /* Garante que o header ocupe a largura disponível */
+}
+
+.login__header img {
+    width: 100%;
+    max-width: 280px; /* Limite máximo para telas grandes */
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 5px 15px rgba(255, 255, 255, 0.3));
+}
+
+.login__header h1 {
+    color: #ff0015b7;
+    font-size: clamp(1.8m);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0px #000;
+}
+
+.login__input {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid #333;
+    border-radius: 9px;
+    color: #222;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    max-width: 350px;
+    outline: none;
+    padding: 12px;
+    transition: all 300ms ease;
+    width: 100%;
+}
+
+.login__input:focus {
+    border-color: #f1c40f;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+    transform: scale(1.02);
+}
+
+.login__button {
+    background: linear-gradient(180deg, #ce0e00 0%, #8b0a00 100%);
+    border: 2px solid #000;
+    border-radius: 9px;
+    box-shadow: 0px 5px 0px #5a0700;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    max-width: 350px;
+    padding: 12px;
+    text-transform: uppercase;
+    transition: all 200ms ease;
+    width: 100%;
+}
+
+.login__button:hover:not(:disabled) {
+    background: linear-gradient(180deg, #e61000 0%, #ce0e00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0px 7px 0px #5a0700;
+}
+
+.login__button:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0px 2px 0px #5a0700;
+}
+
+.login__button:disabled {
+    background: #555;
+    box-shadow: none;
+    color: #888;
+    cursor: not-allowed;
+    border-color: #444;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVIDADE) --- */
+
+/* Para tablets e celulares grandes */
+@media (max-width: 600px) {
+    .login__header {
+        margin-bottom: 25px;
+    }
+
+    .login__header img {
+        max-width: 200px; /* Reduz a logo em telas pequenas */
+    }
+
+    .login__input, .login__button {
+        font-size: 1em; /* Texto levemente menor para caber melhor */
+        padding: 10px;
+    }
+}
+
+/* Para celulares muito pequenos */
+@media (max-width: 350px) {
+    .login-form {
+        padding: 10px;
+    }
+
+    .login__header h1 {
+        font-size: 1.8em;
+    }
+}
